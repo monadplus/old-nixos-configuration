@@ -1,0 +1,11 @@
+[default]
+region = eu-west-2
+output = json
+
+[abella]
+region = eu-west-2
+output = json
+
+[personal]
+region = eu-west-3
+output = json

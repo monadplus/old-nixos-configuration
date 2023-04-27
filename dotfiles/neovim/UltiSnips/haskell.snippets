@@ -1,0 +1,361 @@
+snippet todo "Complex TODO" b
+-- TODO: `echo $USER` ${1:-} `!v strftime("%c")`
+endsnippet
+
+snippet case
+case ${1} of
+  ${2:_} -> ${3:undefined}
+endsnippet
+
+snippet do
+do ${1:undefined}
+    ${2:undefined}
+endsnippet
+
+snippet wh
+where
+  ${1:fn} = ${2:undefined}
+endsnippet
+
+snippet let
+let ${1} = ${2}
+in ${3:undefined}
+endsnippet
+
+snippet new
+newtype ${1:name} = $1 { un$1 :: ${2} }
+  deriving ($4)
+endsnippet
+
+snippet mod
+module ${1} (
+    ${2}
+  ) where
+endsnippet
+
+snippet if
+if ${1}
+  then ${2}
+  else ${3}
+endsnippet
+
+snippet im "Import qualified" b
+import qualified ${1:Data.Text} as ${2:Text}
+endsnippet
+
+snippet iq "Import qualified" b
+import qualified ${1:Data.Text} as ${2:Text}
+endsnippet
+
+snippet cl "Class" b
+class ${1:Name} where
+  ${2:name} :: ${3}
+endsnippet
+
+snippet in "Class instance" b
+instance ${1:Class} ${2:Type} where
+  ${3}
+endsnippet
+
+snippet rec "Record Type" b
+data ${1} = ${2}
+  { ${3} :: ${4:T}
+  } deriving (${6:classes})
+endsnippet
+
+snippet ff "Foreign Function" b
+foreign import ccall safe "${1:cfunction}" ${2:name}
+    :: ${3:function}
+endsnippet
+
+snippet pra "Pragma" b
+{-# LANGUAGE ${1} #-}
+endsnippet
+
+snippet pragma "Pragma" b
+{-# LANGUAGE ${1} #-}
+endsnippet
+
+snippet \
+(\ ${1} -> ${2:undefined})
+endsnippet
+
+snippet sec "Section" b
+----------------------------------------------
+-- ${1:Section}
+----------------------------------------------
+
+endsnippet
+
+snippet sep "Separator" b
+----------------------------------------------
+----------------------------------------------
+
+endsnippet
+
+snippet bs "Import ByteString" b
+import           Data.ByteString (ByteString)
+import qualified Data.ByteString as BS
+import           Data.ByteString.Lazy (ByteString)
+import qualified Data.ByteString.Lazy as LBS
+import           Data.ByteString.Char8 (ByteString)
+import qualified Data.ByteString.Char8 as BSC
+endsnippet
+
+snippet text "Import Data.Text" b
+import           Data.Text (Text)
+import qualified Data.Text as Text
+endsnippet
+
+snippet containers
+import           Data.Map.Strict   as Map
+import qualified Data.Map.Strict   as Map
+import           Data.IntMap       as Map
+import qualified Data.IntMap       as Map
+import           Data.Map.Lazy     as Map
+import qualified Data.Map.Lazy     as Map
+import qualified Data.IntSet       as IntSet
+import           Data.Set          as Set
+import qualified Data.Set          as Set
+import qualified Data.Graph        as Graph
+import qualified Data.Tree         as Tree
+import qualified Data.Sequence     as Seq
+endsnippet
+
+snippet str
+{-# LANGUAGE OverloadedStrings #-}
+endsnippet
+
+snippet gadt
+{-# LANGUAGE GADTs #-}
+endsnippet
+
+snippet rank
+{-# LANGUAGE RankNTypes #-}
+endsnippet
+
+snippet scope
+{-# LANGUAGE ScopedTypeVariables #-}
+endsnippet
+
+snippet ffi
+{-# LANGUAGE ForeignFunctionInterface #-}
+endsnippet
+
+snippet flex
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE TypeSynonymInstances #-}
+endsnippet
+
+snippet syn
+{-# LANGUAGE TypeSynonymInstances #-}
+endsnippet
+
+snippet mparam
+{-# LANGUAGE MultiParamTypeClasses #-}
+endsnippet
+
+snippet bang
+{-# LANGUAGE BangPatterns #-}
+endsnippet
+
+snippet gnew
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+endsnippet
+
+snippet mono
+{-# LANGUAGE NoMonomorphismRestriction #-}
+endsnippet
+
+snippet stand
+{-# LANGUAGE StandaloneDeriving #-}
+endsnippet
+
+snippet temp
+{-# LANGUAGE TemplateHaskell #-}
+endsnippet
+
+snippet derive
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE DeriveTraversable #-}
+{-# LANGUAGE DeriveFoldable #-}
+endsnippet
+
+snippet type
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE PolyKinds #-}
+{-# LANGUAGE KindSignatures #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE UndecidableInstances #-}
+
+import GHC.TypeLits
+import Data.Proxy
+import Data.Type.Equality
+import Data.Reflection
+import Data.Constraint
+import GHC.Exts (Constraint)
+import GHC.Prim (Any, AnyK)
+endsnippet
+
+snippet lang "Common language extension" b
+{-# LANGUAGE AllowAmbiguousTypes #-}
+{-# LANGUAGE BangPatterns #-} -- !
+{-# LANGUAGE ConstraintKinds #-}
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE DefaultSignatures #-}
+{-# LANGUAGE DeriveAnyClass #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveFoldable #-}
+{-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveTraversable #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE DerivingVia #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE EmptyCase #-}
+{-# LANGUAGE EmptyDataDecls #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE InstanceSigs #-}
+{-# LANGUAGE KindSignatures #-}
+{-# LANGUAGE LambdaCase #-} -- \n -> case n of { ... }  ==>  \case { ... }
+{-# LANGUAGE MonadFailDesugaring #-} -- Default in 8.6.1
+{-# LANGUAGE NamedFieldPuns #-} -- let a = 1 in C {a = a}   ==>   let a = 1 in C {a}
+{-# LANGUAGE OverlappingInstances #-} -- {-# OVERLAPPING #-}, {-# OVERLAPPABLE #-}, {-# OVERLAPS #-}, or {-# INCOHERENT #-}.
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PolyKinds #-}
+{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE RecordWildCards #-} -- f (C {a = 1, ..}) = b + c + d
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TupleSections #-}
+{-# LANGUAGE TypeApplications #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE RoleAnnotations #-} -- nominal, representational, phantom. e.g. type role Map nominal representational.
+                                 -- Coercible v1 v2 does imply Coercible (Map k v1) (Map k v2)
+                                 -- Coercible k1 k2 does NOT imply Coercible (Map k1 v) (Map k2 v)
+endsnippet
+
+snippet extensions "Common language extension" b
+{-# LANGUAGE AllowAmbiguousTypes #-}
+{-# LANGUAGE BangPatterns #-} -- !
+{-# LANGUAGE ConstraintKinds #-}
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE DefaultSignatures #-}
+{-# LANGUAGE DeriveAnyClass #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveFoldable #-}
+{-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveTraversable #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE DerivingVia #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE EmptyCase #-}
+{-# LANGUAGE EmptyDataDecls #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE InstanceSigs #-}
+{-# LANGUAGE KindSignatures #-}
+{-# LANGUAGE LambdaCase #-} -- \n -> case n of { ... }  ==>  \case { ... }
+{-# LANGUAGE MonadFailDesugaring #-} -- Default in 8.6.1
+{-# LANGUAGE NamedFieldPuns #-} -- let a = 1 in C {a = a}   ==>   let a = 1 in C {a}
+{-# LANGUAGE OverlappingInstances #-} -- {-# OVERLAPPING #-}, {-# OVERLAPPABLE #-}, {-# OVERLAPS #-}, or {-# INCOHERENT #-}.
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PolyKinds #-}
+{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE RecordWildCards #-} -- f (C {a = 1, ..}) = b + c + d
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TupleSections #-}
+{-# LANGUAGE TypeApplications #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE RoleAnnotations #-} -- nominal, representational, phantom. e.g. type role Map nominal representational.
+                                 -- Coercible v1 v2 does imply Coercible (Map k v1) (Map k v2)
+                                 -- Coercible k1 k2 does NOT imply Coercible (Map k1 v) (Map k2 v)
+endsnippet
+
+snippet main
+main :: IO ()
+main = pure ()
+endsnippet
+
+snippet opt
+{-# OPTIONS_GHC ${1} #-}
+endsnippet
+
+snippet wall
+{-# OPTIONS_GHC -Wall #-}
+endsnippet
+
+snippet nowarn
+{-# OPTIONS_GHC -fno-warn-name-shadowing  #-}
+{-# OPTIONS_GHC -fno-warn-type-defaults   #-}
+{-# OPTIONS_GHC -fno-warn-unused-do-bind  #-}
+endsnippet
+
+snippet box
+--------------------------------------------------------------------
+-- |
+-- Module      : ${1:module}
+-- Copyright   : (C) ${2:Arnau Abella} ${3:2020}
+-- License     : MIT (see the file LECENSE)
+-- Maintainer  : ${4:Arnau Abella arnauabell@gmail.com}
+-- Stability   : experimental
+-- Portability : non-portable
+--
+-- ${5}
+--
+--------------------------------------------------------------------
+endsnippet
+
+snippet dd
+deriving (Eq, Ord, Show, Typeable, Data, Generic)
+endsnippet
+
+snippet inl
+{-# INLINEABLE ${1} #-}
+endsnippet
+
+snippet spe
+{-# SPECIALISE ${1:f :: forall b. Int -> b -> b} #-}
+endsnippet
+
+snippet unp
+{-# UNPACK #-}
+endsnippet
+
+snippet un
+undefined
+endsnippet
+
+snippet er
+error "${1}"
+endsnippet
+
+snippet com
+{-
+${1}
+-}
+endsnippet

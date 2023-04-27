@@ -1,0 +1,71 @@
+Config {  borderColor = "black"
+        , border = NoBorder -- TopB
+        -- , borderWidth = 5
+        , bgColor = "black"
+        , fgColor = "white"
+        , alpha = 0
+        , font = "xft:Inconsolata for Powerline-10:bold"
+        , position = TopP 0 130
+        , lowerOnStart = True
+        , commands =
+
+          [ Run Network "wlp1s0" [ "-t", "In:<rx> Out:<tx>"
+                                 , "-S", "True"
+                                 -- , "-L","100"
+                                 -- , "-H","300"
+                                 -- ,"--normal","green"
+                                 -- ,"--high","red"
+                                 ] 10
+
+          , Run Cpu [ "-t", "<total>%"
+                    , "-L","25"
+                    , "-H","75"
+                    , "--low","lightgreen"
+                    , "--normal","gray90"
+                    , "--high","red"
+                    ] 10
+
+          , Run CpuFreq [ "-t", "<cpu0>GHz"
+                        ] 10
+
+          , Run ThermalZone 0 [ "-t","<temp>C"
+                              , "-L", "40"
+                              , "-H", "60"
+                              , "--low",    "lightblue"
+                              , "--normal", "gray90"
+                              , "--high",   "red"
+                              ] 30
+
+          , Run Memory [ "-t","Mem: <usedratio>%"
+                       ] 10
+
+          , Run Battery [ "-t", "<acstatus>: <left>% - <timeleft>"
+                        , "-L", "20"
+                        , "-H", "75"
+                        , "--low", "red"
+                        , "--normal", "yellow"
+                        , "--high", "green"
+                        , "--", "-O", "<fc=green>AC</fc>", "-o", "<fc=darkorange>Bat</fc>"
+                        ] 10
+
+          , Run Swap [] 10
+
+          -- , Run Com "uname" ["-s","-r"] "" 0 -- 0: executed once
+
+          , Run Volume "default" "Master" ["-t", "Vol: <volume>% <status>"] 10
+
+          , Run Com "bash" ["-c", "echo `brightnessctl -m | grep -oE '[0-9]{0,3}%'`"]  "mybright" 10
+
+          , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+
+          , Run StdinReader
+
+          -- %kbd%
+          , Run Kbd [("us-custom", "us~"), ("us", "us")]
+
+          ]
+
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = "%StdinReader%}{%wlp1s0% | Cpu: %cpu% - %thermal0% | %memory% %swap% | %battery% | Brightness: %mybright% | %default:Master% | %kbd%  <fc=#ee9a00>%date%</fc>"
+        }

@@ -1,0 +1,30 @@
+xkb_symbols "us-custom"
+{
+  include "us(basic)"            // includes the base US keys
+  include "level3(caps_switch)"  // configures CapsLock as a third level switch
+
+  key <LatA> { [ a, A, Greek_alpha ] }; // α
+  key <LatB> { [ b, B, Greek_beta  ] }; // β
+  key <LatG> { [ g, G, Greek_gamma ] }; // γ
+  key <LatD> { [ d, D, Greek_delta ] }; // δ
+  key <LatE> { [ e, E, Greek_epsilon ] }; // ε
+  key <LatZ> { [ z, Z, Greek_zeta  ] }; // ζ
+  // key <Lat> { [ , , Greek_eta  ] }; // η
+  key <LatQ> { [ q, Q, Greek_tetha  ] }; // θ
+  key <LatI> { [ i, I, Greek_iota ] }; // ι
+  key <LatK> { [ k, K, Greek_kappa ] }; // κ
+  key <LatL> { [ l, L, Greek_lambda ] }; // λ
+  key <LatM> { [ m, M, Greek_mu  ] }; // μ
+  key <LatN> { [ n, N, Greek_nu  ] }; // ν
+  key <LatX> { [ x, X, Greek_xi  ] }; // ξ
+  key <LatO> { [ o, O, Greek_omicron  ] }; // ο
+  key <LatJ> { [ j, J, Greek_pi  ] }; //  π
+  key <LatR> { [ r, R, Greek_rho  ] }; // ρ
+  key <LatS> { [ s, S, Greek_sigma  ] }; // σ
+  key <LatT> { [ t, T, Greek_tau  ] }; // τ
+  // key <Lat> { [ , , Greek_upsilon  ] }; // υ
+  key <LatP> { [ p, P, Greek_phi  ] }; // φ
+  key <LatC> { [ c, C, Greek_chi  ] }; // χ
+  // key <Lat> { [ , , Greek_psi  ] }; // ψ
+  key <LatW> { [ w, W, Greek_omega  ] }; // ω
+};

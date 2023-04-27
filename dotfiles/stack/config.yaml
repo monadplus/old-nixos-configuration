@@ -1,0 +1,63 @@
+# This file contains default non-project-specific settings for 'stack', used
+# in all projects.  For more information about stack's configuration, see
+# http://docs.haskellstack.org/en/stable/yaml_configuration/
+
+# The following parameters are used by "stack new" to automatically fill fields
+# in the cabal config. We recommend uncommenting them and filling them out if
+# you intend to use 'stack new'.
+# See https://docs.haskellstack.org/en/stable/yaml_configuration/#templates
+templates:
+  params:
+    author-name: "arnau abella"
+    author-email: "arnauabella@gmail.coom"
+    copyright: "2019-2022 Arnau Abella Gassol"
+    github-username: "monadplus"
+
+# The following parameter specifies stack's output styles; STYLES is a
+# colon-delimited sequence of key=value, where 'key' is a style name and
+# 'value' is a semicolon-delimited list of 'ANSI' SGR (Select Graphic
+# Rendition) control codes (in decimal). Use "stack ls stack-colors --basic"
+# to see the current sequence.
+# stack-colors: STYLES
+
+# More info at: https://docs.haskellstack.org/en/stable/nix_integration/
+# And: https://nixos.org/nixpkgs/manual/#haskell
+nix:
+
+  # false by default. Must be present and set to `true` to enable Nix, except on
+  # NixOS where it is enabled by default (see #3938).  You can set set it in your
+  # `$HOME/.stack/config.yaml` to enable Nix for all your projects without having
+  # to repeat it
+  enable: true
+
+  # true by default. Tells Nix whether to run in a pure shell or not.
+  # https://docs.haskellstack.org/en/stable/nix_integration/#the-nix-shell
+  pure: true
+
+  # Empty by default. The list of packages you want to be
+  # available in the nix-shell at build time (with `stack
+  # build`) and run time (with `stack exec`).
+  #
+  # Coinweb project requires: lzma, openssl, secp256k1, postgresql
+  packages: [ lzma openssl secp256k1 postgresql zlib pcre ]
+
+  # Unset by default. You cannot set this option if `packages:`
+  # is already present and not empty.
+  # shell-file: shell.nix
+
+  # A list of strings, empty by default. Additional options that
+  # will be passed verbatim to the `nix-shell` command.
+  # nix-shell-options: []
+
+  # A list of strings, empty by default, such as
+  # `[nixpkgs=/my/local/nixpkgs/clone]` that will be used to override
+  # NIX_PATH.
+  # path: []
+
+  # false by default. Whether to add your nix dependencies as nix garbage
+  # collection roots. This way, calling nix-collect-garbage will not remove
+  # those packages from the nix store, saving you some time when running
+  # stack build again with nix support activated.
+  # This creates a `nix-gc-symlinks` directory in the project `.stack-work`.
+  # To revert that, just delete this `nix-gc-symlinks` directory.
+  # add-gc-roots: false
